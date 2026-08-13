@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
-        run: python -m pip install --upgrade pip json requests
+        run: python -m pip install --upgrade pip requests
       - name: Fetching data
         run: python3 ./python/FetchData.py
       - name: Verifying exported file
