@@ -1,7 +1,6 @@
 name: CI_Fetch_data
 run-name: ${{ github.repository }} CI [${{ github.event_name }}]
 on: [push]
-env:
 jobs:
   fetch:
     name: fetch_data
