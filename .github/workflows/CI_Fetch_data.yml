@@ -6,7 +6,8 @@ jobs:
   fetch:
     name: fetch_data
     runs-on: ubuntu-latest
-    matrix:
+    strategy:
+      matrix:
         python-version: ["3.12"]
     steps:
       - name: Checkout ${{ github.ref }} on ${{ runner.os }} machine
