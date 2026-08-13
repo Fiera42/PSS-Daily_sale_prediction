@@ -1,0 +1,21 @@
+name: CI_Fetch_data
+run-name: ${{ github.repository }} CI [${{ github.event_name }}]
+on: [push]
+env:
+jobs:
+  fetch:
+    name: fetch_data
+    runs-on: ubuntu-latest
+    matrix:
+        python-version: ["3.12"]
+    steps:
+      - name: Checkout ${{ github.ref }} on ${{ runner.os }} machine
+        uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Fetching data
+        run: python3 ./python/FetchData.py
+      - name: Verifying exported file
+        run: ls
